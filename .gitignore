@@ -1,0 +1,9 @@
+node_modules/
+bookings/incoming/
+bookings/log.json
+bookings/confirmed.json
+agent/run-log.json
+agent/videos.json
+.env
+.openclaw/
+memory/

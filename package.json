@@ -1,0 +1,12 @@
+{
+  "name": "zoomz",
+  "version": "1.0.0",
+  "description": "THE ZOOMZ band website with booking server",
+  "main": "booking-server.js",
+  "scripts": {
+    "start": "node booking-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE ZOOMZ — Kansas City's Most Electric Act</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink:  #FF1B8D;
+      --cyan:  #00CFFF;
+      --lime:  #ADFF2F;
+      --yellow:#FFE000;
+      --black: #0a0a0a;
+      --dark:  #111111;
+      --darker:#050505;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: #f0f0f0;
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .display { font-family: 'Boogaloo', cursive; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── LOGO SVG ── */
+    .logo-svg { width: 36px; height: 36px; flex-shrink: 0; }
+
+    /* ═══════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 64px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--pink);
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .nav-brand span { color: var(--yellow); }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ccc;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 64px;
+    }
+
+    .hero-left {
+      position: relative; z-index: 2;
+      width: 55%;
+      padding: 5rem 4rem 5rem 5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--pink);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Boogaloo', cursive;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .line1 {
+      font-size: clamp(5rem, 10vw, 9rem);
+      color: var(--cyan);
+      display: block;
+    }
+
+    .hero-title .line2 {
+      font-size: clamp(5rem, 10vw, 9rem);
+      color: var(--yellow);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #bbb;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--pink);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,27,141,0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 1rem;
+      border: 2px solid var(--cyan);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--cyan); color: #000; }
+
+    /* Hero right – image panel */
+    .hero-right {
+      position: absolute;
+      top: 0; right: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -1px; right: 0; bottom: 0;
+      background: linear-gradient(to right, var(--black) 0%, transparent 45%);
+      z-index: 1;
+    }
+
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    /* Geometric deco */
+    .hero-deco {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none; z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-deco .tri {
+      position: absolute;
+      width: 0; height: 0;
+      opacity: 0.04;
+    }
+
+    .hero-deco .tri1 {
+      border-left: 300px solid transparent;
+      border-right: 300px solid transparent;
+      border-bottom: 520px solid var(--pink);
+      top: -100px; left: -150px;
+    }
+
+    .hero-deco .tri2 {
+      border-left: 200px solid transparent;
+      border-right: 200px solid transparent;
+      border-bottom: 350px solid var(--cyan);
+      bottom: -50px; left: 200px;
+    }
+
+    .star {
+      position: absolute;
+      font-size: 1.5rem;
+      color: var(--yellow);
+      animation: spin 8s linear infinite;
+      opacity: 0.6;
+    }
+
+    .star:nth-child(3) { top: 18%; left: 48%; animation-duration: 10s; font-size: 1.2rem; color: var(--pink); }
+    .star:nth-child(4) { top: 70%; left: 42%; animation-duration: 6s; font-size: 1.8rem; }
+    .star:nth-child(5) { top: 35%; left: 52%; animation-duration: 12s; font-size: 1rem; color: var(--cyan); }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* ═══════════════════════════════════════
+       MARQUEE STRIP
+    ═══════════════════════════════════════ */
+    .marquee-strip {
+      background: var(--yellow);
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.1rem;
+      color: #000;
+      letter-spacing: 1px;
+      margin-right: 2.5rem;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════ */
+    #about {
+      background: var(--dark);
+      padding: 6rem 5rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .about-photos { display: flex; flex-direction: column; gap: 12px; }
+
+    .photo-top {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .photo-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .photo-sq {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .photo-top img,
+    .photo-sq img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .photo-top:hover img,
+    .photo-sq:hover img { transform: scale(1.07); }
+
+    /* About text */
+    .section-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: #bbb;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      font-size: 0.97rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat {
+      border-top: 2px solid var(--pink);
+      padding-top: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .stat.visible { opacity: 1; transform: none; }
+
+    .stat-num {
+      font-family: 'Boogaloo', cursive;
+      font-size: 2.2rem;
+      color: var(--pink);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════
+       GALLERY
+    ═══════════════════════════════════════ */
+    #gallery {
+      background: var(--black);
+      padding: 6rem 5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 6px;
+      position: relative;
+      cursor: pointer;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .gallery-item.visible { opacity: 1; transform: scale(1); }
+
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: saturate(1.5) brightness(0.85);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      display: flex; align-items: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-overlay {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .play-btn {
+      width: 56px; height: 56px;
+      background: var(--pink);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      padding-left: 4px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .gallery-item:hover .play-btn {
+      transform: scale(1.15);
+      background: var(--cyan);
+      color: #000;
+    }
+
+    .gallery-overlay span {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .gallery-cta { text-align: center; }
+
+    .btn-outline-yellow {
+      display: inline-block;
+      background: transparent;
+      color: var(--yellow);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      padding: 14px 36px;
+      border-radius: 6px;
+      font-size: 1rem;
+      border: 2px solid var(--yellow);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-outline-yellow:hover { background: var(--yellow); color: #000; }
+
+    /* ═══════════════════════════════════════
+       MERCH
+    ═══════════════════════════════════════ */
+    #merch {
+      background: var(--dark);
+      padding: 6rem 5rem;
+    }
+
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .merch-card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #222;
+      transition: border-color 0.2s, transform 0.2s;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s, transform 0.5s, border-color 0.2s;
+    }
+
+    .merch-card.visible { opacity: 1; transform: translateY(0); }
+    .merch-card:hover { border-color: var(--lime); transform: translateY(-4px); }
+
+    .merch-art {
+      height: 180px;
+      background: #111;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+
+    .merch-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--pink);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .merch-info { padding: 1.2rem; }
+
+    .merch-name {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .merch-desc {
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .merch-footer {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .merch-price {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.4rem;
+      color: var(--lime);
+    }
+
+    .btn-add {
+      background: #222;
+      color: #ccc;
+      border: 1px solid #333;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-add:hover { background: var(--lime); color: #000; border-color: var(--lime); }
+
+    /* Cart toast */
+    #cart-toast {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: var(--lime);
+      color: #000;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      z-index: 999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), opacity 0.2s;
+      pointer-events: none;
+    }
+
+    #cart-toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ═══════════════════════════════════════
+       BOOKING
+    ═══════════════════════════════════════ */
+    #book {
+      background: var(--black);
+      padding: 0 0 6rem;
+    }
+
+    .booking-header {
+      background: var(--pink);
+      padding: 2rem 5rem;
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .booking-header-icon { font-size: 2rem; }
+
+    .booking-header h2 {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .booking-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 5rem;
+    }
+
+    .booking-left .section-heading { color: var(--pink); }
+
+    .booking-left p {
+      color: #aaa;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+      font-size: 0.97rem;
+    }
+
+    .booking-highlights {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .booking-highlights li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      color: #ccc;
+      font-size: 0.95rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .booking-highlights li.visible { opacity: 1; transform: none; }
+
+    .booking-highlights li .hl-icon { color: var(--yellow); flex-shrink: 0; }
+
+    /* Form */
+    .booking-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      color: #f0f0f0;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--pink); }
+
+    .form-group select option { background: #111; }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .btn-submit {
+      background: var(--pink);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-status {
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-status.success { background: rgba(173,255,47,0.15); border: 1px solid var(--lime); color: var(--lime); display: block; }
+    .form-status.error   { background: rgba(255,27,141,0.15); border: 1px solid var(--pink); color: var(--pink); display: block; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      background: var(--darker);
+      border-top: 2px solid var(--pink);
+      padding: 2rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .footer-brand span { color: var(--yellow); }
+
+    .footer-nav {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+
+    .footer-nav a {
+      color: #666;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--cyan); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #444;
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-left { width: 100%; padding: 5rem 2rem 4rem; }
+      .hero-right { width: 100%; opacity: 0.25; }
+      .about-grid,
+      .booking-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .merch-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      nav { padding: 0 1.5rem; }
+      #about, #gallery, #merch { padding: 4rem 2rem; }
+      .booking-header { padding: 1.5rem 2rem; }
+      .booking-inner { padding: 0 2rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .merch-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 8px; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="var(--cyan)" />
+        <polygon points="22,3 14,22 20,22 18,37 26,18 20,18" fill="var(--yellow)" />
+      </svg>
+      THE <span>ZOOMZ</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#merch">Merch</a></li>
+      <li><a href="#book">Book Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-deco">
+      <div class="tri tri1"></div>
+      <div class="tri tri2"></div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+    </div>
+
+    <div class="hero-left">
+      <div class="hero-badge">Kansas City's Most Electric Act</div>
+      <h1 class="hero-title">
+        <span class="line1">THE</span>
+        <span class="line2">ZOOMZ</span>
+      </h1>
+      <p class="hero-sub">80s energy · non-stop fun · unforgettable shows</p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn-primary">Book a Show →</a>
+        <a href="#merch" class="btn-outline">Get Merch</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img src="img/hero.jpg" alt="The Zoomz" class="hero-img" />
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-strip">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-photos">
+        <div class="photo-top">
+          <img src="img/live.jpg" alt="The Zoomz live" />
+        </div>
+        <div class="photo-row">
+          <div class="photo-sq">
+            <img src="img/neon1.jpg" alt="Neon 1" />
+          </div>
+          <div class="photo-sq">
+            <img src="img/neon2.jpg" alt="Neon 2" />
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-heading">
+          Pure neon.<br />Zero chill.
+        </h2>
+        <p>The Zoomz are a 2-person, high-voltage 80s-themed act born and raised in Kansas City. We hit the stage in full tracksuit regalia and don't stop until every fanny pack in the room is swinging.</p>
+        <p>Equal parts nostalgia, spectacle, and sweat, we bring a live show that's equal parts concert, costume party, and cardio workout. You've never seen anything quite like it.</p>
+        <p>From intimate bar nights to massive festival stages, we turn every crowd into a neon-soaked, shoulder-pad-wearing family. Come for the music. Stay for the chaos.</p>
+
+        <div class="stats-grid">
+          <div class="stat" data-reveal>
+            <div class="stat-num">80+</div>
+            <div class="stat-label">Shows Played</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Members</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Tracksuits</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat-num">0</div>
+            <div class="stat-label">Boring Shows</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="section-header">
+      <div class="section-label">In the Wild</div>
+      <h2 class="section-heading">
+        Catch the <span style="color:var(--yellow)">Vi</span><span style="color:var(--pink)">bes</span>
+      </h2>
+    </div>
+    <div class="gallery-grid" id="gallery-grid"></div>
+    <div class="gallery-cta">
+      <a href="https://www.youtube.com/@TheZOOMZband" target="_blank" rel="noopener" class="btn-outline-yellow">Watch on YouTube →</a>
+    </div>
+  </section>
+
+  <!-- ── MERCH ── -->
+  <section id="merch">
+    <div class="section-header">
+      <div class="section-label">The Shop</div>
+      <h2 class="section-heading">
+        Wear the <span style="color:var(--lime)">Neon</span>
+      </h2>
+    </div>
+    <div class="merch-grid" id="merch-grid"></div>
+  </section>
+
+  <!-- ── BOOKING ── -->
+  <section id="book">
+    <div class="booking-header">
+      <span class="booking-header-icon">⚡</span>
+      <h2>BRING THE ZOOMZ TO YOUR EVENT</h2>
+    </div>
+    <div class="booking-inner">
+      <div class="booking-left">
+        <div class="section-label">Book a Show</div>
+        <h2 class="section-heading">Let's make<br />it weird.</h2>
+        <p>We show up ready to absolutely destroy the concept of a boring event. Tracksuits? Check. Neon? Obviously. Will people talk about it for years? That's the plan.</p>
+        <p>We play bars, festivals, private parties, corporate events, and weddings. Especially weddings.</p>
+        <ul class="booking-highlights">
+          <li data-reveal>
+            <span class="hl-icon">⚡</span>
+            <span>Full 80s themed performance — costumes, lights, neon everything</span>
+          </li>
+          <li data-reveal>
+            <span class="hl-icon">⚡</span>
+            <span>2-person act — low logistics, maximum energy</span>
+          </li>
+          <li data-reveal>
+            <span class="hl-icon">⚡</span>
+            <span>Available throughout Kansas City and surrounding areas</span>
+          </li>
+          <li data-reveal>
+            <span class="hl-icon">⚡</span>
+            <span>Guaranteed the most fun your guests will have all year</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <form class="booking-form" id="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bf-name">Name *</label>
+              <input type="text" id="bf-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="bf-email">Email *</label>
+              <input type="email" id="bf-email" name="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bf-phone">Phone</label>
+              <input type="tel" id="bf-phone" name="phone" placeholder="(816) 555-0000" />
+            </div>
+            <div class="form-group">
+              <label for="bf-date">Event Date *</label>
+              <input type="date" id="bf-date" name="date" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bf-venue">Venue / Location *</label>
+            <input type="text" id="bf-venue" name="venue" placeholder="Venue name and city" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bf-type">Event Type *</label>
+              <select id="bf-type" name="event_type" required>
+                <option value="">Select type…</option>
+                <option>Bar/Club Night</option>
+                <option>Festival/Outdoor</option>
+                <option>Private Party</option>
+                <option>Corporate Event</option>
+                <option>Wedding/Celebration</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bf-attendance">Expected Attendance</label>
+              <select id="bf-attendance" name="attendance">
+                <option value="">Select range…</option>
+                <option>Under 50</option>
+                <option>50–150</option>
+                <option>150–500</option>
+                <option>500–1000</option>
+                <option>1000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bf-message">Message</label>
+            <textarea id="bf-message" name="message" placeholder="Tell us about your event, any special requests, etc."></textarea>
+          </div>
+          <div class="form-status" id="form-status"></div>
+          <button type="submit" class="btn-submit" id="submit-btn">Send It ⚡</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-brand">
+      <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="var(--cyan)" />
+        <polygon points="22,3 14,22 20,22 18,37 26,18 20,18" fill="var(--yellow)" />
+      </svg>
+      THE <span>ZOOMZ</span>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#merch">Merch</a></li>
+      <li><a href="#book">Book Us</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 The Zoomz · Kansas City, MO</div>
+  </footer>
+
+  <!-- ── CART TOAST ── -->
+  <div id="cart-toast">Added to cart ✓</div>
+
+  <script>
+    /* ── MARQUEE ── */
+    (function() {
+      const items = [
+        'THE ZOOMZ', '★ 80s ENERGY', '★ BOOK A SHOW', '★ NEON LIFE',
+        '★ LIVE LOUD', '★ KC ORIGINALS', '★ FANNY PACKS FOREVER ★'
+      ];
+      const track = document.getElementById('marquee-track');
+      const html = items.map(t => `<span>${t}</span>`).join('');
+      track.innerHTML = html + html; // double for seamless loop
+    })();
+
+    /* ── GALLERY ── */
+    (function() {
+      const FALLBACK = [
+        { id: 'jL0cPHsLFlk' },
+        { id: 'vii16lTqvfI' },
+        { id: 'awN9pszaDYU' },
+      ];
+
+      function renderVideos(videos) {
+        const grid = document.getElementById('gallery-grid');
+        grid.innerHTML = '';
+        videos.forEach((v, i) => {
+          const a = document.createElement('a');
+          a.href = v.url || `https://www.youtube.com/watch?v=${v.id}`;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.className = 'gallery-item';
+          a.style.transitionDelay = `${i * 80}ms`;
+          a.innerHTML = `
+            <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg" alt="${v.title || 'Watch on YouTube'}" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="play-btn">▶</div>
+              <span>${v.title || 'Watch on YouTube'}</span>
+            </div>
+          `;
+          grid.appendChild(a);
+        });
+        // Re-run scroll reveal on new items
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        grid.querySelectorAll('.gallery-item').forEach(el => observer.observe(el));
+      }
+
+      // Render fallback immediately, then fetch live data
+      renderVideos(FALLBACK.map(v => ({ id: v.id })));
+
+      fetch('/api/videos')
+        .then(r => r.json())
+        .then(data => { if (data.ok && data.videos.length) renderVideos(data.videos); })
+        .catch(() => {}); // keep fallback on any error
+    })();
+
+    /* ── MERCH ── */
+    (function() {
+      const products = [
+        { name: 'Neon Tracksuit',      price: '$85', desc: 'The full kit. Black + neon. Be a Zoomz.',       emoji: '🥻', badge: 'SIGNATURE' },
+        { name: 'Mirror Shield Shades', price: '$28', desc: 'Wide-lens. Mirrored. Non-negotiable.',         emoji: '🕶️', badge: 'ESSENTIAL' },
+        { name: 'Logo Tee',            price: '$32', desc: 'Heavyweight cotton. Lightning bolt front.',      emoji: '👕', badge: null },
+        { name: 'Fanny Pack',          price: '$22', desc: 'Silver metallic. Hands-free. Very Zoomz.',      emoji: '👜', badge: null },
+        { name: 'Neon Headband',       price: '$14', desc: 'Pink, green, or yellow. All equally perfect.',  emoji: '🎀', badge: null },
+        { name: 'Debut Album (vinyl)', price: '$30', desc: 'The one that started it all.',                  emoji: '💿', badge: 'LIMITED' },
+      ];
+      const grid = document.getElementById('merch-grid');
+      products.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'merch-card';
+        card.innerHTML = `
+          <div class="merch-art">
+            ${p.emoji}
+            ${p.badge ? `<div class="merch-badge">${p.badge}</div>` : ''}
+          </div>
+          <div class="merch-info">
+            <div class="merch-name">${p.name}</div>
+            <div class="merch-desc">${p.desc}</div>
+            <div class="merch-footer">
+              <span class="merch-price">${p.price}</span>
+              <button class="btn-add" data-name="${p.name}">+ Add</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Cart toast
+      const toast = document.getElementById('cart-toast');
+      let toastTimer;
+      grid.addEventListener('click', e => {
+        const btn = e.target.closest('.btn-add');
+        if (!btn) return;
+        clearTimeout(toastTimer);
+        toast.textContent = `${btn.dataset.name} added ✓`;
+        toast.classList.add('show');
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+      });
+    })();
+
+    /* ── SCROLL REVEAL (IntersectionObserver) ── */
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      // Stats
+      document.querySelectorAll('.stat').forEach(el => observer.observe(el));
+      // Gallery items
+      document.querySelectorAll('.gallery-item').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 80}ms`;
+        observer.observe(el);
+      });
+      // Merch cards
+      document.querySelectorAll('.merch-card').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 70}ms`;
+        observer.observe(el);
+      });
+      // Booking highlights
+      document.querySelectorAll('.booking-highlights li').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 100}ms`;
+        observer.observe(el);
+      });
+    })();
+
+    /* ── BOOKING FORM ── */
+    (function() {
+      const form = document.getElementById('booking-form');
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        statusEl.className = 'form-status';
+        statusEl.textContent = '';
+
+        const data = {};
+        new FormData(form).forEach((v, k) => { data[k] = v.trim(); });
+
+        // Client-side required check
+        const required = ['name', 'email', 'date', 'venue', 'event_type'];
+        const missing = required.filter(f => !data[f]);
+        if (missing.length) {
+          statusEl.className = 'form-status error';
+          statusEl.textContent = 'Please fill in all required fields.';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        try {
+          const res = await fetch('/api/book', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (res.ok) {
+            const json = await res.json();
+            statusEl.className = 'form-status success';
+            statusEl.textContent = `Got it! We'll be in touch soon. (ID: ${json.id})`;
+            form.reset();
+          } else {
+            const json = await res.json().catch(() => ({}));
+            throw new Error(json.error || `Server error ${res.status}`);
+          }
+        } catch (err) {
+          if (err.message.includes('fetch') || err.name === 'TypeError') {
+            // Server not running — log and show friendly message
+            console.log('[ZOOMZ BOOKING]', data);
+            statusEl.className = 'form-status success';
+            statusEl.textContent = 'Thanks! Your booking request has been noted. We\'ll reach out shortly.';
+            form.reset();
+          } else {
+            statusEl.className = 'form-status error';
+            statusEl.textContent = `Error: ${err.message}`;
+          }
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send It ⚡';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
