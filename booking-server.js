@@ -11,6 +11,9 @@ const PORT        = process.env.PORT || 8080;
 const ROOT        = __dirname;
 const BOOKINGS    = path.join(ROOT, 'bookings');
 const INCOMING    = path.join(BOOKINGS, 'incoming');
+
+// Ensure runtime directories exist
+fs.mkdirSync(INCOMING, { recursive: true });
 const LOG_FILE    = path.join(BOOKINGS, 'log.json');
 const DISCORD     = process.env.DISCORD_WEBHOOK_URL || '';
 const VIDEOS_FILE      = path.join(ROOT, 'agent', 'videos.json');
