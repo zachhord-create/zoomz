@@ -1,0 +1,343 @@
+<!-- ═══ THE ZOOMZ — Kids Party Entertainment page ═══
+     Paste into ONE Squarespace Code Block (Display Source off).
+     Page settings → SEO:
+       SEO title:       Kids Birthday Party Entertainment in Kansas City | The Zoomz
+       SEO description: Live kids' birthday party entertainment in Kansas City. The Zoomz bring a high-energy live concert, sing-along nursery rhyme bops and their own sound system. Check your date.
+       URL slug:        /kids-party-entertainment
+-->
+<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  .zz { --pink:#FF1B8D; --cyan:#00CFFF; --lime:#ADFF2F; --yellow:#FFE000; --black:#0a0a0a; --dark:#111;
+        background:var(--black); color:#f0f0f0; font-family:'Nunito',sans-serif; line-height:1.65; }
+  .zz *, .zz *::before, .zz *::after { box-sizing:border-box; }
+  .zz h1, .zz h2, .zz h3 { font-family:'Boogaloo',cursive; font-weight:400; margin:0; line-height:1.05; letter-spacing:.5px; }
+  .zz p { margin:0 0 1rem; color:#bbb; }
+  .zz a { text-decoration:none; }
+  .zz .wrap { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+  .zz section { padding:4.5rem 0; }
+  .zz .alt { background:var(--dark); }
+  .zz .label { font-weight:800; font-size:.75rem; letter-spacing:3px; text-transform:uppercase; color:var(--pink); margin-bottom:.8rem; }
+  .zz h2 { font-size:clamp(2.1rem,4vw,3.2rem); margin-bottom:1.2rem; }
+
+  /* hero */
+  .zz .hero { padding:6rem 0 4.5rem; border-bottom:2px solid var(--pink); }
+  .zz .badge { display:inline-block; background:var(--pink); color:#fff; font-weight:800; font-size:.75rem; letter-spacing:2px; text-transform:uppercase; padding:6px 16px; border-radius:999px; margin-bottom:1.4rem; }
+  .zz h1 { font-size:clamp(2.6rem,5.2vw,4.3rem); margin-bottom:1.3rem; }
+  .zz h1 .c { color:var(--cyan); } .zz h1 .y { color:var(--yellow); }
+  .zz h1, .zz h1 * { font-family:'Nunito',sans-serif!important; font-weight:400!important; letter-spacing:-1px; }
+  .zz .lead { font-size:1.15rem; max-width:680px; }
+  .zz .ctas { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+  .zz .btn { display:inline-block; font-weight:800; padding:14px 30px; border-radius:6px; font-size:1rem; transition:transform .15s, box-shadow .15s, background .2s, color .2s; }
+  .zz .btn-p { background:var(--pink); color:#fff; }
+  .zz .btn-p:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,27,141,.45); }
+  .zz .btn-o { border:2px solid var(--cyan); color:var(--cyan); }
+  .zz .btn-o:hover { background:var(--cyan); color:#000; }
+
+  /* video */
+  .zz .two { display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:center; }
+  .zz .video { position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; border:2px solid var(--cyan); }
+  .zz .video iframe, .zz .video video { position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover; background:#000; }
+
+  /* cards */
+  .zz .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:2rem; }
+  .zz .card { background:#1a1a1a; border:1px solid #262626; border-radius:10px; padding:1.6rem; }
+  .zz .card h3 { font-size:1.6rem; margin-bottom:.6rem; }
+  .zz .card:nth-child(1) h3 { color:var(--yellow); }
+  .zz .card:nth-child(2) h3 { color:var(--cyan); }
+  .zz .card:nth-child(3) h3 { color:var(--lime); }
+  .zz .card p { font-size:.95rem; margin:0; }
+  .zz ul.ticks { list-style:none; padding:0; margin:1rem 0 0; }
+  .zz ul.ticks li { padding-left:1.6rem; position:relative; margin:.55rem 0; color:#ccc; }
+  .zz ul.ticks li::before { content:'⚡'; position:absolute; left:0; color:var(--yellow); }
+
+  /* steps */
+  .zz .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:2rem; counter-reset:s; }
+  .zz .step { border-top:3px solid var(--pink); padding-top:1rem; }
+  .zz .step h3 { font-size:1.45rem; margin-bottom:.4rem; }
+  .zz .step h3::before { counter-increment:s; content:counter(s) '. '; color:var(--pink); }
+  .zz .step p { font-size:.95rem; }
+
+  /* towns */
+  .zz .towns { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem; }
+  .zz .towns span { border:1px solid #333; border-radius:999px; padding:6px 14px; font-weight:700; font-size:.88rem; color:#ddd; }
+
+  /* faq */
+  .zz details { border-bottom:1px solid #262626; padding:1.1rem 0; }
+  .zz summary { cursor:pointer; font-weight:800; font-size:1.05rem; color:#fff; list-style:none; position:relative; padding-right:2rem; }
+  .zz summary::-webkit-details-marker { display:none; }
+  .zz summary::after { content:'+'; position:absolute; right:0; top:-2px; color:var(--pink); font-size:1.4rem; }
+  .zz details[open] summary::after { content:'–'; }
+  .zz details p { margin:.8rem 0 0; }
+
+  /* final cta */
+  .zz .final { background:var(--pink); text-align:center; padding:4rem 0; }
+  .zz .final h2 { color:#fff; }
+  .zz .final p { color:#ffe3f1; max-width:600px; margin:0 auto 1.6rem; }
+  .zz .final .btn { background:#000; color:var(--yellow); }
+  .zz .final .btn:hover { transform:translateY(-2px); }
+
+  /* photos */
+  .zz img { display:block; max-width:100%; height:auto; }
+  .zz .hero-grid { display:grid; grid-template-columns:1.25fr 1fr; gap:3rem; align-items:center; }
+  .zz .hero-photo img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:12px; border:3px solid var(--yellow); box-shadow:12px 12px 0 var(--pink); }
+  .zz .photos { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:2rem; }
+  .zz .photos img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:8px; }
+  .zz .wide { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:10px; margin-top:1.5rem; border:2px solid var(--lime); }
+
+
+  /* Hide Squarespace chrome so our own site shows (same as homepage) */
+  #header,.header,.sqs-announcement-bar-dropzone{display:none!important;}
+  #footer-sections,.sqs-footer{display:none!important;}
+
+  /* Make this code block span the full page width, edge to edge */
+  .fluid-engine:has(.zz){display:block!important;}
+  .fe-block:has(.zz){width:100%!important;}
+  .page-section:has(.zz){padding:0!important;min-height:0!important;}
+  .page-section:has(.zz) .content-wrapper{padding:0!important;max-width:none!important;}
+  .page-section:has(.zz) .section-background{background:#0a0a0a!important;}
+  .sqs-block:has(.zz){padding:0!important;}
+
+  /* nav + footer (matches homepage) */
+  .zz nav.znav { position:sticky; top:0; z-index:100; height:64px; padding:0 24px; display:flex; justify-content:space-between; align-items:center; background:rgba(10,10,10,.92); backdrop-filter:blur(12px); border-bottom:2px solid var(--pink); }
+  .zz .nav-brand { display:flex; align-items:center; gap:10px; font-size:1.4rem; letter-spacing:1px; color:var(--cyan); font-family:'Nunito',sans-serif; }
+  .zz .nav-brand span { color:var(--yellow); }
+  .zz .logo-svg { width:36px; height:36px; flex-shrink:0; }
+  .zz .nav-links { display:flex; gap:32px; list-style:none; margin:0; padding:0; }
+  .zz .nav-links a { font-weight:700; font-size:.9rem; letter-spacing:1px; text-transform:uppercase; color:var(--cyan); }
+  .zz .nav-links a:hover { color:#fff; }
+  .zz footer.zfoot { padding:32px 80px; background:#050505; border-top:2px solid var(--pink); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  .zz .footer-brand { display:flex; align-items:center; gap:10px; font-family:'Boogaloo',cursive; font-size:1.1rem; color:#fff; }
+  .zz .footer-brand span { color:var(--yellow); }
+  .zz .footer-nav { display:flex; gap:24px; list-style:none; margin:0; padding:0; }
+  .zz .footer-nav a { font-size:.85rem; font-weight:600; color:#888; }
+  .zz .footer-nav a:hover { color:var(--cyan); }
+  .zz .footer-social { display:flex; gap:1.1rem; }
+  .zz .footer-social a { width:22px; height:22px; display:flex; color:#888; }
+  .zz .footer-social a:hover { color:var(--cyan); }
+  .zz .footer-social svg { width:22px; height:22px; }
+  .zz .footer-copy { font-size:.8rem; color:#444; }
+
+  @media (max-width:600px) { .zz .nav-links { display:none; } }
+  @media (max-width:860px) {
+    .zz footer.zfoot { padding:28px 20px; flex-direction:column; text-align:center; }
+    .zz .hero-grid { grid-template-columns:1fr; gap:2rem; }
+    .zz .hero-photo img { aspect-ratio:1/1; box-shadow:8px 8px 0 var(--pink); }
+    .zz .photos { grid-template-columns:repeat(2,1fr); gap:8px; }
+    .zz .two, .zz .cards, .zz .steps { grid-template-columns:1fr; gap:1.5rem; }
+    .zz section { padding:3.5rem 0; }
+    .zz .hero { padding:4.5rem 0 3.5rem; }
+  }
+</style>
+
+<div class="zz">
+
+  <nav class="znav">
+    <a href="/" class="nav-brand"><svg class="logo-svg" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#00CFFF"></circle><polygon points="22,3 14,22 20,22 18,37 26,18 20,18" fill="#FFE000"></polygon></svg>THE <span>ZOOMZ</span></a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#gallery">Gallery</a></li>
+      <li><a href="/#book">Book Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" style="padding-top:4rem">
+    <div class="wrap hero-grid">
+      <div>
+      <div class="badge">Party Mode · Kansas City</div>
+      <h1><span class="c">Kids Birthday Party</span><br><span class="y">Entertainment</span> in Kansas City</h1>
+      <p class="lead">Skip the bounce house. Book a live band. The Zoomz are a husband-and-wife duo who turn nursery rhymes and childhood favorites into loud, colorful, high-energy bops that kids sing, dance and shout along to — and parents actually enjoy too.</p>
+      <div class="ctas">
+        <a class="btn btn-p" href="/#book">Check your party date →</a>
+        <a class="btn btn-o" href="#zz-video">Watch us play</a>
+      </div>
+      </div>
+      <div class="hero-photo">
+        <img src="img/zoomz-kids-party-band-live-kansas-city.jpg" alt="The Zoomz kids party band performing live in bright matching tracksuits in Kansas City" width="1000" height="1250" fetchpriority="high" />
+      </div>
+    </div>
+  </header>
+
+  <!-- PHOTO STRIP -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="label">Live kids' party entertainment</div>
+      <h2>What a Zoomz party looks like</h2>
+      <div class="photos">
+        <img src="img/zoomz-singer-with-toddler-kids-party.jpg" alt="Zoomz singer holding a toddler in matching sunglasses at a kids party" width="1000" height="1250" loading="lazy" />
+        <img src="img/kids-dancing-zoomz-family-concert.jpg" alt="Child and mom dancing together at a Zoomz family concert" width="1000" height="1250" loading="lazy" />
+        <img src="img/kid-shark-hat-toy-guitar-zoomz-show.jpg" alt="Kid in a shark hat playing a toy guitar at a Zoomz show" width="1000" height="1250" loading="lazy" />
+        <img src="img/zoomz-singer-leading-kids-sing-along.jpg" alt="Zoomz singer leading a kids sing-along on stage" width="1000" height="1250" loading="lazy" />
+        <img src="img/kid-giraffe-mask-zoomz-party.jpg" alt="Kid in a giraffe mask dancing at a Zoomz party" width="1000" height="1250" loading="lazy" />
+        <img src="img/kid-animal-mask-zoomz-concert.jpg" alt="Kid in an animal mask at a Zoomz kids concert" width="1000" height="1250" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO + WHY -->
+  <section id="zz-video">
+    <div class="wrap two">
+      <div class="video">
+        <video controls playsinline preload="none" poster="img/zoomz-kids-party-band-promo-poster.jpg" aria-label="The Zoomz kids party band promo video">
+          <source src="img/zoomz-kids-party-band-promo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div>
+        <div class="label">Live musical entertainment</div>
+        <h2>Not a magician.<br>A real kids' band.</h2>
+        <p>Most kids' party entertainment is a character visit or a magic show. The Zoomz bring a full concert to your backyard, living room or party venue — real instruments, real vocals, and songs every kid already knows.</p>
+        <ul class="ticks">
+          <li>Sing-along remixes of Row Row Row Your Boat, Humpty Dumpty, The Muffin Man, ABC's and more</li>
+          <li>Interactive from the first song — dancing, call-and-response, birthday-kid spotlight</li>
+          <li>Bright, colorful costumes kids remember</li>
+          <li>We bring our own sound system and mics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="label">Kids party entertainment packages</div>
+      <h2>Pick your party size</h2>
+      <p>Every show is built around your event. Tell us your budget on the booking form and we'll match you with the right fit.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Birthday Party Show</h3>
+          <p>A 30–45 minute live set from the duo, built for backyards, living rooms and party rooms. Sound system included. Add costumed characters for extra wow.</p>
+        </div>
+        <div class="card">
+          <h3>Big Bash</h3>
+          <p>Pool parties, block parties, neighborhood and school family nights. Same high-energy show, sized for a bigger crowd.</p>
+        </div>
+        <div class="card">
+          <h3>Full Band</h3>
+          <p>Festivals, city events and company family days get the full Zoomz band. We've headlined Overland Park Fall Fest and bring production when needed.</p>
+        </div>
+      </div>
+      <img class="wide" src="img/the-zoomz-full-band-kansas-city.jpg" alt="The Zoomz full band in bright matching tracksuits at a Kansas City festival" width="1600" height="899" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="wrap">
+      <div class="label">How booking works</div>
+      <h2>Three steps to the best party on the block</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>Send your date</h3>
+          <p>Fill out the quick booking form with your date, location and party size. We reply fast.</p>
+        </div>
+        <div class="step">
+          <h3>Lock it in</h3>
+          <p>A 50% deposit holds your date. The balance is due the day of the show.</p>
+        </div>
+        <div class="step">
+          <h3>Turn it up</h3>
+          <p>We arrive about an hour early, set up our own gear, and play. You enjoy the party.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="label">Where we play</div>
+      <h2>Birthday party performers across the KC metro</h2>
+      <p>Based in Kansas City, Missouri, and booking parties on both sides of the state line. Farther away? We travel by arrangement.</p>
+      <div class="towns">
+        <span>Kansas City, MO</span><span>Kansas City, KS</span><span>Overland Park</span><span>Olathe</span><span>Lenexa</span><span>Shawnee</span><span>Leawood</span><span>Lee's Summit</span><span>Liberty</span><span>Blue Springs</span><span>Independence</span><span>Raymore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap" style="max-width:820px">
+      <div class="label">FAQ</div>
+      <h2>Party questions, answered</h2>
+      <details>
+        <summary>How long is a Zoomz birthday party show?</summary>
+        <p>Most party shows run 30 to 45 minutes — the sweet spot for keeping kids dancing the whole time.</p>
+      </details>
+      <details>
+        <summary>What ages is the show for?</summary>
+        <p>The show is built for young kids — toddlers through early elementary — and the grown-ups who bring them. Big kids and parents sing along too.</p>
+      </details>
+      <details>
+        <summary>Do we need to provide a sound system?</summary>
+        <p>No. We bring our own PA and microphones. We just need a power outlet and a spot to set up.</p>
+      </details>
+      <details>
+        <summary>Can you play outdoors?</summary>
+        <p>Yes — backyards, pool parties, parks and festivals. If weather forces a change for an outdoor show, rescheduling is free.</p>
+      </details>
+      <details>
+        <summary>How much does kids birthday party entertainment cost?</summary>
+        <p>It depends on show length, duo vs. full band, and travel. Share your budget on the booking form and we'll recommend the best fit.</p>
+      </details>
+      <details>
+        <summary>Do you do church events or VBS too?</summary>
+        <p>Yes. We also lead kids' worship for VBS, church family nights and camps — same energy, bigger message.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap">
+      <h2>Make it the party they talk about all year</h2>
+      <p>Weekend dates go first. Send your date and we'll let you know if we're free.</p>
+      <a class="btn" href="/#book">Book The Zoomz →</a>
+    </div>
+  </section>
+
+  <footer class="zfoot">
+    <div class="footer-brand"><svg class="logo-svg" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#00CFFF"></circle><polygon points="22,3 14,22 20,22 18,37 26,18 20,18" fill="#FFE000"></polygon></svg>THE <span>ZOOMZ</span></div>
+    <ul class="footer-nav"><li><a href="/#about">About</a></li><li><a href="/#gallery">Gallery</a></li><li><a href="/#book">Book Us</a></li></ul>
+    <div class="footer-social"><a href="https://www.instagram.com/zoomzband/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"></circle></svg></a><a href="https://open.spotify.com/artist/0pXGiqlUOtcIoGo0iqkFy8" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.83-1.73-6.39-2.12-10.59-1.16a.75.75 0 1 1-.33-1.46c4.56-1.04 8.47-.6 11.6 1.34.35.21.46.67.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.24-1.99-8.18-2.57-12-1.41a.94.94 0 1 1-.55-1.79c4.37-1.33 9.8-.68 13.53 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.32 8.82 8.11 5.11 9.24a1.12 1.12 0 1 1-.65-2.15c4.26-1.29 11.34-1.04 15.81 1.61a1.12 1.12 0 0 1-1.17 1.92z"></path></svg></a></div>
+    <div class="footer-copy">© 2026 The Zoomz · Kansas City, MO</div>
+  </footer>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "PerformingGroup",
+      "name": "The Zoomz",
+      "url": "https://www.zoomzband.com/",
+      "description": "Husband-and-wife kids' music duo from Kansas City performing live birthday party, church and family event entertainment.",
+      "email": "thezoomzband@gmail.com",
+      "areaServed": { "@type": "City", "name": "Kansas City" },
+      "sameAs": [
+        "https://www.youtube.com/@TheZOOMZband",
+        "https://www.instagram.com/zoomzband/",
+        "https://open.spotify.com/artist/0pXGiqlUOtcIoGo0iqkFy8"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How long is a Zoomz birthday party show?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most party shows run 30 to 45 minutes." } },
+        { "@type": "Question", "name": "What ages is the show for?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The show is built for young kids, toddlers through early elementary, and the grown-ups who bring them." } },
+        { "@type": "Question", "name": "Do we need to provide a sound system?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The Zoomz bring their own PA and microphones and just need a power outlet and a spot to set up." } },
+        { "@type": "Question", "name": "Can you play outdoors?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. If weather forces a change for an outdoor show, rescheduling is free." } },
+        { "@type": "Question", "name": "How much does kids birthday party entertainment cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on show length, duo vs. full band, and travel. Share your budget on the booking form for a recommendation." } },
+        { "@type": "Question", "name": "Do you do church events or VBS too?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Zoomz also lead kids' worship for VBS, church family nights and camps." } }
+      ]
+    }
+  ]
+}
+</script>
